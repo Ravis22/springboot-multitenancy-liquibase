@@ -1,0 +1,27 @@
+spring:
+  liquibase:
+    enabled: false
+    change-log: classpath:/db/changelog/master-changelog.xml
+  jpa:
+    open-in-view: false
+
+tenants:
+  default-schema: tenant1
+  datasources:
+    tenant1:
+      url: jdbc:mysql://localhost:3306/tenant1?useUnicode=true&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: root
+      password: admin
+      maximum-pool-size: 2
+      pool-name: Hikari-tenant1
+    tenant2:
+      url: jdbc:mysql://localhost:3306/tenant2?useUnicode=true&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
+      driverClassName: com.mysql.cj.jdbc.Driver
+      username: root
+      password: admin
+      maximum-pool-size: 2
+      pool-name: Hikari-tenant2
+#logging:
+#  level:
+#    root: debug
